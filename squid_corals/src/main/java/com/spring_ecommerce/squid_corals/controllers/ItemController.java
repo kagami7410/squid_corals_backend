@@ -1,6 +1,7 @@
 package com.spring_ecommerce.squid_corals.controllers;
 
 
+import com.spring_ecommerce.squid_corals.models.CoralType;
 import com.spring_ecommerce.squid_corals.models.Item;
 import com.spring_ecommerce.squid_corals.models.User;
 import com.spring_ecommerce.squid_corals.repository.ItemRepository;
@@ -19,6 +20,10 @@ public class ItemController {
     @GetMapping("/getAll")
     public ResponseEntity<List<Item>> getAllItems(){
         return ResponseEntity.ok(itemRepository.findAll());
+    }
+    @GetMapping("/getByType")
+    public ResponseEntity<List<Item>> getByType(@RequestParam CoralType coralType){
+        return ResponseEntity.ok(itemRepository.findByCoralType(coralType));
     }
 
     @DeleteMapping("/deleteAll")

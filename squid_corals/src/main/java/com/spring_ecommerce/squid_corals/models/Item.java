@@ -28,10 +28,13 @@ public class Item {
     String description;
 
     @Column
-    Long code;
+    String code;
 
     @Column
     Float price;
+
+    @Column
+    CoralType coralType;
 
 //    @OneToMany(mappedBy = "item", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 //    @JsonIgnoreProperties({"item"})
